@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { addBookHandler, getAllBookHandler } = require('./handler');
+const { addBookHandler, getAllBookHandler, getBookByIdHandler } = require('./handler');
 
 const bookSchema = Joi.object().keys({
   name: Joi.string(),
@@ -30,6 +30,11 @@ const routes = [
     method: 'GET',
     path: '/books',
     handler: getAllBookHandler,
+  },
+  {
+    method: 'GET',
+    path: '/books/{id}',
+    handler: getBookByIdHandler,
   },
 ];
 

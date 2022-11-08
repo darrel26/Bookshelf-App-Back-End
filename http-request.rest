@@ -41,6 +41,7 @@ Content-Type: application/json
 }
 ### Retrieve All Books
 GET http://localhost:3000/books
-
+### Get Specific Book Details
+GET http://localhost:3000/books/n_fi9lkkQ7L8wOBy
 
 
