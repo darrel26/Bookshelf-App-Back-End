@@ -1,0 +1,13 @@
+GET http://localhost:5000/about/users/Dionisius?lang=id
+###
+GET http://localhost:5000/about/users/Dionisius
+###
+GET http://localhost:5000/about/users
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "Dion26",
+    "password": "encryptedpassword"
+}

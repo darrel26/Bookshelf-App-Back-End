@@ -1,0 +1,22 @@
+GET http://localhost:3000/notes
+###
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "title":"Javascript", 
+    "tags":["Node", "Programming"], 
+    "body": "Test Only"
+}
+
+###
+PUT http://localhost:3000/notes/wqq0RBfh2aA-2oqT
+Content-Type: application/json
+
+{
+    "title":"Javascript - 2",
+    "tags": ["Node"],
+    "body": "Test 123"
+}
+###
+DELETE http://localhost:3000/notes/wqq0RBfh2aA-2oqT

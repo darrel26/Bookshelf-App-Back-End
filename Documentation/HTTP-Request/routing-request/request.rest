@@ -1,0 +1,12 @@
+GET http://localhost:5000
+###
+GET http://localhost:5000/about
+###
+POST http://localhost:5000/about
+Content-Type: application/json
+
+{
+    "name": "Dionisius Darrel"
+}
+###
+GET http://localhost:5000/about/124142
