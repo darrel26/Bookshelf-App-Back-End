@@ -17,6 +17,7 @@ POST http://localhost:3000/books
 Content-Type: application/json
 
 {
+	"name": "",
  	"year": 2010,
  	"author": "John Doe",
  	"summary": "Lorem ipsum dolor sit amet",
@@ -42,6 +43,48 @@ Content-Type: application/json
 ### Retrieve All Books
 GET http://localhost:3000/books
 ### Get Specific Book Details
-GET http://localhost:3000/books/n_fi9lkkQ7L8wOBy
+GET http://localhost:3000/books/1KBwXZ-G0QpM5cE9
+### Edit Book
+PUT http://localhost:3000/books/UMcrQllHNDiU7ht9
+Content-Type: application/json
+
+{
+ 	"name": "Buku A revised",
+ 	"year": 2022,
+ 	"author": "Doe John",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia - Revised",
+ 	"pageCount": 100,
+ 	"readPage": 95,
+ 	"reading": true
+}
+### Failed to edit book, readPage can't be bigger than pageCount
+PUT http://localhost:3000/books/UMcrQllHNDiU7ht9
+Content-Type: application/json
+
+{
+ 	"name": "Buku A revised",
+ 	"year": 2022,
+ 	"author": "Doe John",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia - Revised",
+ 	"pageCount": 100,
+ 	"readPage": 105,
+ 	"reading": true
+}
+### Failed to edit book, book name can't be empty
+PUT http://localhost:3000/books/3Eb6IyzQo__6AkOp
+Content-Type: application/json
+
+{
+	"name": "",
+ 	"year": 2022,
+ 	"author": "Doe John",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia - Revised",
+ 	"pageCount": 100,
+ 	"readPage": 105,
+ 	"reading": true
+}
 
 
