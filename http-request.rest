@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
  	"name": "Buku A",
- 	"year": 2010,
+ 	"year": 2004,
  	"author": "John Doe",
  	"summary": "Lorem ipsum dolor sit amet",
  	"publisher": "Dicoding Indonesia",
@@ -17,7 +17,6 @@ POST http://localhost:3000/books
 Content-Type: application/json
 
 {
- 	"name": "",
  	"year": 2010,
  	"author": "John Doe",
  	"summary": "Lorem ipsum dolor sit amet",
@@ -31,7 +30,7 @@ POST http://localhost:3000/books
 Content-Type: application/json
 
 {
- 	"name": "",
+ 	"name": "Buku A",
  	"year": 2010,
  	"author": "John Doe",
  	"summary": "Lorem ipsum dolor sit amet",
