@@ -177,7 +177,7 @@
 		}
 		```
 	
-- [ ] **API can edit book data**
+- [X] **API can edit book data**
 	
 	- Method : **PUT**
 	- URL : **/books/{bookId}**
@@ -241,7 +241,7 @@
 	}
 	```
 	
-- [ ] **API can delete book**
+- [X] **API can delete book**
 	
 	- Method : **DELETE**
 	- URL : **/books/{bookId}**
