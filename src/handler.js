@@ -64,12 +64,64 @@ const addBookHandler = (request, h) => {
   }).code(501);
 };
 
-const getAllBookHandler = (request, h) => h.response({
-  status: 'success',
-  data: {
-    books: books.map((book) => ({ id: book.id, name: book.name, publisher: book.publisher })),
-  },
-});
+const getAllBookHandler = (request, h) => {
+  const { name, reading, finished } = request.query;
+
+  if (name) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: books.filter((book) => {
+          const bookName = book.name.toLowerCase();
+          return bookName.includes(name.toLowerCase());
+        }).map((result) => ({ id: result.id, name: result.name, publisher: result.publisher })),
+      },
+    });
+  }
+
+  if (Number(reading) === 0) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: books.filter((book) => book.reading === false)
+          .map((result) => ({ id: result.id, name: result.name, publisher: result.publisher })),
+      },
+    });
+  } if (Number(reading) === 1) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: books.filter((book) => book.reading === true)
+          .map((result) => ({ id: result.id, name: result.name, publisher: result.publisher })),
+      },
+    });
+  }
+
+  if (Number(finished) === 0) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: books.filter((book) => book.finished === false)
+          .map((result) => ({ id: result.id, name: result.name, publisher: result.publisher })),
+      },
+    });
+  } if (Number(finished) === 1) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: books.filter((book) => book.finished === true)
+          .map((result) => ({ id: result.id, name: result.name, publisher: result.publisher })),
+      },
+    });
+  }
+
+  return h.response({
+    status: 'success',
+    data: {
+      books: books.map((book) => ({ id: book.id, name: book.name, publisher: book.publisher })),
+    },
+  });
+};
 
 const getBookByIdHandler = (request, h) => {
   const { id } = request.params;
@@ -148,6 +200,28 @@ const editBookByIdHandler = (request, h) => {
   });
 };
 
+const deleteBookByIdHandler = (request, h) => {
+  const { id } = request.params;
+  const index = books.findIndex((book) => book.id === id);
+
+  if (index === -1) {
+    return h.response({
+      status: 'fail',
+      message: 'Buku gagal dihapus. Id tidak ditemukan',
+    }).code(404);
+  }
+
+  books.splice(index, 1);
+  return h.response({
+    status: 'success',
+    message: 'Buku berhasil dihapus',
+  });
+};
+
 module.exports = {
-  addBookHandler, getAllBookHandler, getBookByIdHandler, editBookByIdHandler,
+  addBookHandler,
+  getAllBookHandler,
+  getBookByIdHandler,
+  editBookByIdHandler,
+  deleteBookByIdHandler,
 };
