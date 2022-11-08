@@ -6,7 +6,7 @@
 
 ### Project To Do List
 
-- [ ] **API can save books**
+- [X] **API can save books**
 	
 	- Method : **POST**
 	- URL : **/books**
@@ -99,7 +99,7 @@
 		}
 		```
 	
-- [ ] **API can retrieve and display all books**
+- [X] **API can retrieve and display all books**
 	
 	- Method : **GET**
 	- URL : **/books**
