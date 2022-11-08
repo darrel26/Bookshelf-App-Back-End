@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const {
-  addBookHandler, getAllBookHandler, getBookByIdHandler, editBookByIdHandler,
+  addBookHandler, getAllBookHandler, getBookByIdHandler, editBookByIdHandler, deleteBookByIdHandler,
 } = require('./handler');
 
 const bookSchema = Joi.object().keys({
@@ -56,6 +56,11 @@ const routes = [
         ).takeover(),
       },
     },
+  },
+  {
+    method: 'DELETE',
+    path: '/books/{id}',
+    handler: deleteBookByIdHandler,
   },
 ];
 
