@@ -1,0 +1,45 @@
+### Book successfully added
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+ 	"name": "Buku A",
+ 	"year": 2010,
+ 	"author": "John Doe",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia",
+ 	"pageCount": 100,
+ 	"readPage": 100,
+ 	"reading": false
+}
+### Name can't be empty
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+ 	"name": "",
+ 	"year": 2010,
+ 	"author": "John Doe",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia",
+ 	"pageCount": 100,
+ 	"readPage": 100,
+ 	"reading": false
+}
+### readPage can't be bigger than pageCount
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+ 	"name": "",
+ 	"year": 2010,
+ 	"author": "John Doe",
+ 	"summary": "Lorem ipsum dolor sit amet",
+ 	"publisher": "Dicoding Indonesia",
+ 	"pageCount": 100,
+ 	"readPage": 125,
+ 	"reading": false
+}
+
+
+
