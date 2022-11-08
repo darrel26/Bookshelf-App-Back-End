@@ -136,7 +136,7 @@
 	
 	*If no books have been entered, the server can respond with an empty books array.*
 	
-- [ ] **API can show book details**
+- [X] **API can show book details**
 	
 	- Method : **GET**
 	- URL : **/books/{booksId}**
