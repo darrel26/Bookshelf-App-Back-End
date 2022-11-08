@@ -1,5 +1,7 @@
 const Joi = require('joi');
-const { addBookHandler, getAllBookHandler, getBookByIdHandler } = require('./handler');
+const {
+  addBookHandler, getAllBookHandler, getBookByIdHandler, editBookByIdHandler,
+} = require('./handler');
 
 const bookSchema = Joi.object().keys({
   name: Joi.string(),
@@ -20,9 +22,12 @@ const routes = [
     options: {
       validate: {
         payload: bookSchema,
-        failAction: (request, h, err) => {
-          throw err;
-        },
+        failAction: (request, h, err) => h.response(
+          {
+            status: 400,
+            message: `Gagal menambahkan buku. Mohon isi kolom ${err.details[0].path}`,
+          },
+        ).takeover(),
       },
     },
   },
@@ -35,6 +40,22 @@ const routes = [
     method: 'GET',
     path: '/books/{id}',
     handler: getBookByIdHandler,
+  },
+  {
+    method: 'PUT',
+    path: '/books/{id}',
+    handler: editBookByIdHandler,
+    options: {
+      validate: {
+        payload: bookSchema,
+        failAction: (request, h, err) => h.response(
+          {
+            status: 400,
+            message: `Gagal memperbarui buku. Mohon isi kolom ${err.details[0].path}`,
+          },
+        ).takeover(),
+      },
+    },
   },
 ];
 
